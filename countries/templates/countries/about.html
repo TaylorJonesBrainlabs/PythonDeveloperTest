@@ -1,0 +1,19 @@
+{% extends "countries/base.html" %}
+{% block content %}
+  <h1>About the Game</h1>
+
+  <p>On the <a href="{% url 'countries-home' %}">homepage</a>, you will see a randomly generated Country Name.</p>
+  <br>
+  <p>In the text bar underneath, enter your guess for the country's capital.</p>
+  <br>
+  <p>If you're correct, you will see a message with the country's correct capital name. If you are wrong, the page will refresh and you will have another chance to guess</p>
+
+  <strong>THINGS TO NOTE:</strong>
+  <ul>
+    <li>Your guess must match the capital name <i>exactly</i>. This means you should write all guesses in title case (All word starting with Capital Letters)</li><br>
+    <li>The country generator may not send a new country each time. If this is the case, simply exit the url and return to it through localhost</li><br>
+    <li>You have unlimited tries on each country, but you cannot get to the next one without a correct answer</li>
+  </ul>
+
+  <p>Enjoy the game, and good luck!</p>
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends "countries/base.html" %}
+{% block content %}
+  <h1>Continent Guessing Game</h1>
+  <br>
+  <p>To learn more about the game, click <a href="{% url 'countries-about' %}">here</a></p>
+  <br>
+
+  {% if context.success %}
+    <p>You win! Correct answer is {{ context.capital }}.</p>
+    <form action="" method="post">
+        <input type="submit" value="Start new game" name="start_new">
+    </form>
+  {% endif %}
+
+
+  {% if not context.success %}
+    <p>{{ context.country }}</p>
+    <form action="" method="post">
+        <label for="countries-home">Guess a capital: </label>
+        <input id="guess_capital" type="text" name="guess_capital" value="" required>
+        <input type="submit" value="OK">
+    </form>
+
+    {{ capital_guess }}
+
+  {% endif %}
+
+
+
+  <!-- {% for c in response %}
+
+  <p>Country: {{ c.name }}</p>
+
+  {% endfor %} -->
+  <!-- <p>{{ context }}</p>
+
+
+  <form action="{% url 'countries-home' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><input type="submit" value="Submit"></p>
+  </form>
+
+  {{ form.data.guess }} -->
+  <!-- <form action="" method="post">
+    {% csrf_token %}
+    <label for="capital_guess">Your guess: </label>
+    <input id="capital_guess" type="text" name="capital_guess">
+    <input type="submit" value="OK">
+</form> -->
+  <!-- {% for post in posts %}
+      <h2>{{ post.title }}</h2>
+      <p>by {{ post.author }} on {{ post.date_posted }}</p>
+      <p>{{ post.content }}</p>
+  {% endfor %} -->
+{% endblock content %}
